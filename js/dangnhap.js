@@ -12,7 +12,7 @@ function DangNhap() {
         // console.log(res.data);
         if(res.data.MaLoaiNguoiDung === 'QuanTri'){
             localStorage.setItem('currentUser', JSON.stringify(res.data));
-            window.location.assign('./index.html');
+            window.location.assign('index.html');
         }
     })
     .catch(function(ex) {
