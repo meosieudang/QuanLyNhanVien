@@ -92,7 +92,7 @@ function taoBang(arr) {
                 <td>${nhanVien.ChucVu}</td>
                 <td>${nhanVien.TinhLuong()}</td>
                 <td>
-                    <button class="btn btn-success" onclick="xoaNhanVien('${i}')">Xóa</button>
+                    <button class="btn btn-success" onclick="xoaNhanVien('${i}', '${nhanVien.Ten}')">Xóa</button>
                     <button class="btn btn-info"
                     data-manhanvien = "${nhanVien.MaNV}"
                     data-ho = "${nhanVien.Ho}"
@@ -108,9 +108,10 @@ function taoBang(arr) {
     getEl('tbodyNhanVien').innerHTML = content;
 }
 
-function xoaNhanVien(index) {
+function xoaNhanVien(index, ten) {
+    
     Swal({
-        title: 'Bạn chắc chắn?',
+        title: `Bạn co muon xoa "${ten}"?`,
         text: "Bạn không thể trở lại được ?",
         type: 'warning',
         showCancelButton: true,
@@ -126,7 +127,7 @@ function xoaNhanVien(index) {
                 DSNV.splice(index, 1);
                 taoBang(DSNV);
                 Swal(
-                    'Deleted!',
+                    `Da xoa "${ten}"`,
                     'Your file has been deleted.',
                     'success'
                 )
